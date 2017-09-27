@@ -9,16 +9,17 @@ module.exports = function multiply(first, second) {
   
 
     for(let i = 0; i < second.length; i++){
+      additive = 0;
     for(let j = 0; j < first.length; j++){
       digit = first[first.length - j - 1];
       digit = digit * second[i];
-      currentNumber = parseInt(digit%10) + additive;
+      currentNumber = digit + additive;
     
-      if(currentNumber/10 >= 1){
-        additive = parseInt(digit/10) + 1;
+      if(currentNumber> 9){
+        additive = parseInt(currentNumber/10)   ;
         currentNumber = parseInt(currentNumber%10);
       }else{
-        additive = parseInt(digit/10);
+        additive = parseInt(currentNumber/10);
       }
       itemString = itemString + currentNumber;
     }
